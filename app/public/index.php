@@ -42,4 +42,6 @@ $app->post('/', function (Request $request, Response $response) {
         ->withHeader('content-type', 'text/plain');
 });
 
+$app->addErrorMiddleware(false, true, true);
+
 $app->run();

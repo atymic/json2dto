@@ -13,7 +13,11 @@ module.exports = {
       content: [
         "./src/**/*.html",
         "./src/**/*.vue"
-      ]
+      ],
+      whitelistPatternsChildren: [
+        /codemirror/i,
+        /CodeMirror/i,
+      ],
     }): ""
   ],
 };

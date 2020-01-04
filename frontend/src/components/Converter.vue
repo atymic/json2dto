@@ -14,7 +14,7 @@
                 </button>
             </div>
 
-            <div class="px-4 md:p-0">
+            <div class="px-4 md:p-0 mb-10">
                 <options v-model="options"></options>
                 <div class="md:flex container border flex-wrap">
                     <json-input-editor ref="input" v-model="json"></json-input-editor>
