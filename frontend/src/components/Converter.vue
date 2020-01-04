@@ -14,6 +14,12 @@
                 </button>
             </div>
 
+            <div v-if="error" class="text-white px-6 py-4 border-0 rounded relative mb-4 bg-red-500">
+                <span class="inline-block align-middle mr-8">
+                    <b class="capitalize">Error</b> {{ error }}
+                </span>
+            </div>
+
             <div class="px-4 md:p-0 mb-10">
                 <options v-model="options"></options>
                 <div class="md:flex container border flex-wrap">
@@ -47,11 +53,19 @@
           flexible: false,
         },
         loading: false,
+        error: null,
         dto: null,
       }
     },
     methods: {
       generate () {
+        this.error = null
+
+        if (!isJsonString(this.json)) {
+          this.error = 'Invalid JSON Input'
+          return
+        }
+
         this.$refs.input.tidy()
         this.loading = true
         Axios.post(process.env.ENDPOINT || 'http://localhost:8081', {
@@ -62,6 +76,9 @@
           source: JSON.parse(this.json),
         }).then(res => {
           this.dto = res.data
+          this.loading = false
+        }).catch(err => {
+          this.error = 'Failed to generate DTO'
           this.loading = false
         })
       },
