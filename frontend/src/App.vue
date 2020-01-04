@@ -7,14 +7,13 @@
 </template>
 
 <script>
-  import Loader from './components/Loader'
   import Converter from './components/Converter'
   import NavBar from './components/NavBar'
   import Footer from './components/Footer'
 
   export default {
     name: 'app',
-    components: { foot: Footer, NavBar, Converter, Loader },
+    components: { foot: Footer, NavBar, Converter },
     data () {
       return {
         quote: null,
