@@ -5,6 +5,10 @@
         class="py-2 px-3 text-gray-500">
         Input Json
       </span>
+      <button @click="tidy"
+              class="text-indigo-500 font-semibold ml-auto py-2 px-3 focus:outline-none border-b-3 transition border-transparent hover:bg-gray-200 focus:bg-gray-400">
+        Tidy
+      </button>
     </div>
     <div class="h-full">
       <codemirror v-model="json" :options="editorOptions"></codemirror>

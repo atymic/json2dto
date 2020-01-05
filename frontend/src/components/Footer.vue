@@ -1,5 +1,5 @@
 <template>
-    <div class="flex justify-center mb-6 text-sm text-gray-500">
+    <div class="flex justify-center my-6 text-sm text-gray-500">
         <div>
             Created by <a class="font-bold" href="https://atymic.dev">atymic</a>
         </div>

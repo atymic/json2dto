@@ -5,6 +5,10 @@
         class="py-2 px-3 text-gray-500">
         Generated DTO
       </span>
+      <button v-clipboard:copy="value"
+              class="text-indigo-500 font-semibold ml-auto py-2 px-3 focus:outline-none border-b-3 transition border-transparent hover:bg-gray-200 focus:bg-gray-400">
+        Copy To Clipboard
+      </button>
     </div>
     <div class="h-full border-l">
       <div v-if="loading" class="flex-1 flex flex-col justify-center align-center">

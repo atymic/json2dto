@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="mb-10">
         <div class="max-w-6xl mx-auto mt-8">
             <p class="text-gray-800">Json 2 DTO generates <a class="text-indigo-500 hover:text-indigo-700"
                                                              target="_blank"
@@ -20,11 +20,11 @@
                 </span>
             </div>
 
-            <div class="px-4 md:p-0 mb-10">
+            <div class="px-4 md:p-0">
                 <options v-model="options"></options>
                 <div class="md:flex container border flex-wrap">
-                    <json-input-editor ref="input" v-model="json"></json-input-editor>
-                    <dto-output :loading="loading" :value="dto"></dto-output>
+                    <json-input-editor ref="input" v-model="json" class="w-full md:w-1/2"></json-input-editor>
+                    <dto-output :loading="loading" :value="dto" class="w-full md:w-1/2"></dto-output>
                 </div>
             </div>
         </div>
@@ -34,6 +34,7 @@
 <script>
   import Axios from 'axios'
   import saveState from 'vue-save-state'
+  import defaultDto from '../dto.default.js'
 
   import JsonInputEditor from './JsonInputEditor'
   import DtoOutput from './DtoOutput'
@@ -45,7 +46,7 @@
     mixins: [saveState],
     data () {
       return {
-        json: null,
+        json: JSON.stringify({ 'id': 45, 'name': 'hello world', 'price': 44.5, 'enabled': true }, null, 2),
         options: {
           namespace: 'App\\DTO',
           name: null,
@@ -54,7 +55,7 @@
         },
         loading: false,
         error: null,
-        dto: null,
+        dto: defaultDto,
       }
     },
     methods: {
@@ -85,7 +86,7 @@
       getSaveStateConfig () {
         return {
           'cacheKey': 'json2dto',
-          'ignoreProperties': ['loading', 'dto'],
+          'ignoreProperties': ['loading', 'error'],
         }
       },
     },
@@ -94,6 +95,6 @@
 
 <style scoped>
     .container {
-        height: 70vh;
+        height: 65vh;
     }
 </style>
