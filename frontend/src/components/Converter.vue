@@ -71,8 +71,8 @@
         this.$refs.input.tidy()
         this.loading = true
         Axios.post(process.env.VUE_APP_ENDPOINT || 'http://localhost:8081', {
-          namespace: this.options.namespace,
-          name: this.options.name,
+          namespace: this.options.namespace || null,
+          name: this.options.name || null,
           typed: this.options.typed,
           flexible: this.options.flexible,
           source: JSON.parse(this.json),
