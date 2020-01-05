@@ -3,7 +3,9 @@
 [Spatie's Data Transfer Object](https://github.com/spatie/data-transfer-object) library is awesome, but typing out DTOs
 can quicky become a chore. Inspired by Json2Typescript style tools, I built one for PHP DTOs.
 
-https://json2dto.atymic.dev
+Try it out at https://json2dto.atymic.dev
+
+[![](https://repository-images.githubusercontent.com/231837839/14ed4680-2fb2-11ea-81fe-f06c5038b0dd)](https://json2dto.atymic.dev)
 
 ## How it works
 
