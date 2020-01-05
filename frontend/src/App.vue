@@ -14,13 +14,6 @@
   export default {
     name: 'app',
     components: { foot: Footer, NavBar, Converter },
-    data () {
-      return {
-        quote: null,
-        quoteNum: null,
-        quotes: [],
-      }
-    },
   }
 </script>
 
