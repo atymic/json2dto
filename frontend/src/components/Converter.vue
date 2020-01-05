@@ -4,8 +4,9 @@
             <p class="text-gray-800">Json 2 DTO generates <a class="text-indigo-500 hover:text-indigo-700"
                                                              target="_blank"
                                                              href="https://github.com/spatie/data-transfer-object">spatie/data-transfer-object</a>
-                objects automatically from json snippets.<br>Your DTOs then allow you statically type check code that
-                interacts with them</p>
+                objects automatically from json snippets.
+                <br>Your DTOs then allow you statically type check code that interacts with them.
+            </p>
             <div class="flex justify-center my-6">
                 <button @click="generate" :disabled="loading"
                         class="bg-indigo-500 text-white active:bg-indigo-600 disabled:opacity-75 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
