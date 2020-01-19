@@ -24,10 +24,10 @@ class GenerateDto extends Command
             ->addArgument('namespace', InputArgument::REQUIRED, 'Namespace to generate the class(es) in')
             ->addArgument('json', InputArgument::OPTIONAL, 'File containing the json string')
             ->addOption('classname', 'name', InputOption::VALUE_OPTIONAL, 'Class name of the new DTO', 'NewDto')
-            ->addOption('nested', null, InputOption::VALUE_OPTIONAL, 'Generate nested DTOs', false)
-            ->addOption('typed', null, InputOption::VALUE_OPTIONAL, 'Generate PHP >= 7.4 strict typing', false)
-            ->addOption('flexible', null, InputOption::VALUE_OPTIONAL, 'Generate a flexible DTO', false)
-            ->addOption('dry', null, InputOption::VALUE_OPTIONAL, 'Dry run, print generated files', false);
+            ->addOption('nested', null, InputOption::VALUE_NONE, 'Generate nested DTOs')
+            ->addOption('typed', null, InputOption::VALUE_NONE, 'Generate PHP >= 7.4 strict typing')
+            ->addOption('flexible', null, InputOption::VALUE_NONE, 'Generate a flexible DTO')
+            ->addOption('dry', null, InputOption::VALUE_NONE, 'Dry run, print generated files');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
