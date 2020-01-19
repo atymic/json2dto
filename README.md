@@ -49,9 +49,9 @@ Arguments:
   json                            File containing the json string
 
 Options:
-      --nested[=NESTED]               Generate nested DTOs [default: false]
-      --typed[=TYPED]                 Generate PHP >= 7.4 strict typing [default: false]
-      --flexible[=FLEXIBLE]           Generate a flexible DTO [default: false]
-      --dry[=DRY]                     Dry run, print generated files [default: false]
       -name, --classname[=CLASSNAME]  Class name of the new DTO [default: "NewDto"]
+      --nested                        Generate nested DTOs
+      --typed                         Generate PHP >= 7.4 strict typing
+      --flexible                      Generate a flexible DTO
+      --dry                           Dry run, print generated files
 ```
