@@ -12,6 +12,7 @@
     "axios": "^0.19.0",
     "code-mirror-themes": "^1.0.0",
     "core-js": "^2.6.5",
+    "file-saver": "^2.0.2",
     "postcss": "^7.0.18",
     "purgecss": "^1.4.0",
     "tailwindcss": "^1.1.2",
