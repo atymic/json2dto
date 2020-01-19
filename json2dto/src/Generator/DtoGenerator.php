@@ -54,22 +54,6 @@ class DtoGenerator
         return $files;
     }
 
-    public function write()
-    {
-        foreach ($this->classes as $classNamespace) {
-            $folder = $this->namespaceToFolder($classNamespace->getName());
-            $className = array_values($classNamespace->getClasses())[0]->getName();
-            $class = sprintf("<?php\n\n%s", (string) $classNamespace);
-
-            if (!file_exists($folder)) {
-                mkdir($folder, 0755, true);
-            }
-
-            //File::put(getcwd() . sprintf('%s/%s.php', $folder, $className), $class);
-            file_put_contents(sprintf('%s/%s.php', $folder, $className), $class);
-        }
-    }
-
     public function createClass(
         string $namespace,
         stdClass $source,

@@ -28,7 +28,6 @@ class GenerateDto extends Command
             ->addOption('typed', null, InputOption::VALUE_OPTIONAL, 'Generate PHP >= 7.4 strict typing', false)
             ->addOption('flexible', null, InputOption::VALUE_OPTIONAL, 'Generate a flexible DTO', false)
             ->addOption('dry', null, InputOption::VALUE_OPTIONAL, 'Dry run, print generated files', false);
-
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
