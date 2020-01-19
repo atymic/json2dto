@@ -1,0 +1,3 @@
+parameters:
+  directories_to_repositories:
+    json2dto: 'git@github.com:atymic/json2dto-php.git'

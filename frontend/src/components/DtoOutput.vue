@@ -14,6 +14,11 @@
       <div v-if="loading" class="flex-1 flex flex-col justify-center align-center">
         <spinner class="py-10" size="large"></spinner>
       </div>
+      <div v-else-if="nested" class="py-20 text-center">
+        <zip-icon class="h-16 mx-auto mb-2"></zip-icon>
+        <h3 class="text-2xl text-gray-800">Generating Nested DTOs</h3>
+        <p class="text-gray-700">A zip archive of the generated DTO objects will be downloaded</p>
+      </div>
       <codemirror v-else :value="value" :options="editorOptions"></codemirror>
     </div>
   </div>
@@ -23,14 +28,17 @@
   import { codemirror } from 'vue-codemirror'
   import 'codemirror/mode/php/php'
   import Spinner from 'vue-simple-spinner'
+  import ZipIcon from './ZipIcon'
 
   export default {
     name: 'DtoOutput',
     components: {
+      ZipIcon,
       codemirror,
       Spinner,
     },
     props: {
+      nested: Boolean,
       value: String,
       loading: Boolean,
     },

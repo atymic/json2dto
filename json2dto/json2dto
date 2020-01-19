@@ -1,0 +1,13 @@
+#!/usr/bin/env php
+<?php
+
+$autoloader = require file_exists(__DIR__.'/vendor/autoload.php') ?  __DIR__.'/vendor/autoload.php' : __DIR__.'/../../autoload.php';
+
+use Atymic\Json2Dto\Commands\GenerateDto;
+use Symfony\Component\Console\Application;
+
+$app = new Application();
+$app->setName('Json2Dto');
+
+$app->add(new GenerateDto());
+$app->run();
