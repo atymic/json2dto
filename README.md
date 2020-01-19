@@ -23,7 +23,9 @@ composer install atymic/json2dto --dev # Install locally in a project
 
 ### Usage
 
-The tool accepts json input either as a filename (second argument) or via `stdin`
+The tool accepts json input either as a filename (second argument) or via `stdin`.  
+You should run the tool in the root of your project (where your `composer.json` is located) as it will resolve namespaces
+based on your PSR4 autoloading config. If you aren't using PSR4, your generated folder structure might not match.
 
 #### Examples
 

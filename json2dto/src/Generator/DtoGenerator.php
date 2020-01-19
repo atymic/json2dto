@@ -2,6 +2,7 @@
 
 namespace Atymic\Json2Dto\Generator;
 
+use Atymic\Json2Dto\Helpers\NamespaceFolderResolver;
 use Atymic\Json2Dto\Helpers\NameValidator;
 use Illuminate\Support\Str;
 use Nette\PhpGenerator\ClassType;
@@ -43,7 +44,7 @@ class DtoGenerator
         $files = [];
 
         foreach ($this->classes as $classNamespace) {
-            $folder = $this->namespaceToFolder($classNamespace->getName());
+            $folder = NamespaceFolderResolver::namespaceToFolder($classNamespace->getName());
             $className = array_values($classNamespace->getClasses())[0]->getName();
             $class = sprintf("<?php\n\n%s", (string) $classNamespace);
             $path = sprintf('%s/%s.php', $folder, $className);
@@ -231,12 +232,6 @@ class DtoGenerator
         }
 
         return null;
-    }
-
-    private function namespaceToFolder(string $namespace)
-    {
-        // todo windows?
-        return str_replace('\\', '/', $namespace);
     }
 
     private function getDtoFqcn(ClassType $dto): string
