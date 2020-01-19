@@ -4,15 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2f8d94317e7a6320ba94da7f1ef7526c",
+    "content-hash": "26d404b8aa161358ef924311a8339eae",
     "packages": [
         {
             "name": "atymic/json2dto",
-            "version": "dev-master",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/atymic/json2dto-php.git",
+                "reference": "dc3f896a824c7f649b2a9444299380892ea82d9f"
+            },
             "dist": {
-                "type": "path",
-                "url": "../json2dto",
-                "reference": "93c8d5ccd9d83a7f286a8c3fbf3f943e1661a96d"
+                "type": "zip",
+                "url": "https://api.github.com/repos/atymic/json2dto-php/zipball/dc3f896a824c7f649b2a9444299380892ea82d9f",
+                "reference": "dc3f896a824c7f649b2a9444299380892ea82d9f",
+                "shasum": ""
             },
             "require": {
                 "ext-json": "*",
@@ -26,17 +32,16 @@
                 "mockery/mockery": "^1.0",
                 "phpunit/phpunit": "^8.0"
             },
+            "bin": [
+                "json2dto"
+            ],
             "type": "project",
             "autoload": {
                 "psr-4": {
                     "Atymic\\Json2Dto\\": "src/"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "Tests\\": "tests/"
-                }
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "authors": [
                 {
                     "name": "atymic",
@@ -53,12 +58,7 @@
                 "laravel",
                 "spatie"
             ],
-            "support": {
-                "source": "https://github.com/atymic/json2dto"
-            },
-            "transport-options": {
-                "symlink": true
-            }
+            "time": "2020-01-19T03:15:53+00:00"
         },
         {
             "name": "doctrine/inflector",
@@ -1482,9 +1482,7 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "atymic/json2dto": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

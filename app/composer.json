@@ -7,7 +7,7 @@
         }
     ],
     "require": {
-        "atymic/json2dto": "dev-master",
+        "atymic/json2dto": "0.1.0",
         "nette/php-generator": "^3.3",
         "spatie/data-transfer-object": "^1.12",
         "slim/slim": "4.*",
