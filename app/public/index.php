@@ -37,7 +37,7 @@ $app->post('/', function (Request $request, Response $response) {
 
     if ($nested) {
         $zipName = sprintf('%s.zip', uniqid('dto', true));
-        $zipPath = sys_get_temp_dir() . '/' . $zipName;
+        $zipPath = '/tmp/' . $zipName;
         $zip = new \ZipArchive();
         $zip->open($zipPath, \ZipArchive::CREATE);
 
@@ -68,6 +68,6 @@ $app->post('/', function (Request $request, Response $response) {
         ->withHeader('content-type', 'text/plain');
 });
 
-$app->addErrorMiddleware(false, true, true);
+$app->addErrorMiddleware(true, true, true);
 
 $app->run();

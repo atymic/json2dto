@@ -5,6 +5,12 @@ RUN composer global require hirak/prestissimo && composer install
 
 FROM php:7.3-apache
 
+RUN apt-get update
+RUN apt-get install -y \
+        libzip-dev \
+        zip \
+  && docker-php-ext-install zip
+
 EXPOSE 8080
 COPY --from=build /app /var/www/
 COPY docker/json2dto.conf /etc/apache2/sites-available/000-default.conf
