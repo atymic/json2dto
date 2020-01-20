@@ -1,19 +1,18 @@
 <template>
     <div id="app">
         <nav-bar></nav-bar>
-        <converter></converter>
+        <router-view></router-view>
         <foot></foot>
     </div>
 </template>
 
 <script>
-  import Converter from './components/Converter'
   import NavBar from './components/NavBar'
   import Footer from './components/Footer'
 
   export default {
     name: 'app',
-    components: { foot: Footer, NavBar, Converter },
+    components: { foot: Footer, NavBar },
   }
 </script>
 
