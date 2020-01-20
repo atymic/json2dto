@@ -1,4 +1,12 @@
 {
+    "scripts": {
+        "update-docs": "sed -n -e '/## CLI Tool/,$p' README.md > frontend/src/docs/cli.md",
+        "release": [
+            "git diff-index --quiet --cached HEAD --",
+            "git checkout master",
+            "monorepo-builder split"
+        ]
+    },
     "require-dev": {
         "symplify/monorepo-builder": "^7.2"
     }

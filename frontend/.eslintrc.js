@@ -13,6 +13,7 @@ module.exports = {
     'no-undef': 'off',
     'import/no-extraneous-dependencies': 'off',
     'global-require': 'off',
+    'invalid-first-character-of-tag-name': 'off',
   },
   parserOptions: {
     parser: 'babel-eslint',
