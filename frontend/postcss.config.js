@@ -25,6 +25,7 @@ module.exports = {
         /codemirror/i,
         /CodeMirror/i,
         /cm-/i,
+        /markdown/i,
       ],
     }) : '',
   ],
