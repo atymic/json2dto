@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace Atymic\Json2Dto\Commands;
 
 use Atymic\Json2Dto\Generator\DtoGenerator;
+use Atymic\Json2Dto\Helpers\NamespaceFolderResolver;
 use Atymic\Json2Dto\Helpers\NameValidator;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
@@ -66,7 +67,9 @@ class GenerateDto extends Command
 
         $generator->generate($decoded, $input->getOption('classname'));
 
-        foreach ($generator->getFiles() as $path => $class) {
+        $namespaceResolver = new NamespaceFolderResolver($this->getComposerConfig());
+
+        foreach ($generator->getFiles($namespaceResolver) as $path => $class) {
             if ($dryRun) {
                 $output->writeln([$path, '', $class, '']);
                 continue;
@@ -81,5 +84,14 @@ class GenerateDto extends Command
         }
 
         return self::EXIT_SUCCESS;
+    }
+
+    private function getComposerConfig(): ?array
+    {
+        if (!file_exists('composer.json')) {
+            return null;
+        }
+
+        return json_decode(file_get_contents('composer.json'), true);
     }
 }

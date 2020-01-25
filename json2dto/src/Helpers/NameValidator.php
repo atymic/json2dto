@@ -78,7 +78,8 @@ abstract class NameValidator
 
     public static function validateClassName(string $name): bool
     {
-        return !in_array(strtolower($name), self::RESERVED_WORDS, true);
+        return preg_match('/^[a-zA-Z_\x80-\xff][a-zA-Z0-9_\x80-\xff]*$/', $name)
+            && !in_array(strtolower($name), self::RESERVED_WORDS, true);
     }
 
     public static function validateNamespace(string $namespace): bool
