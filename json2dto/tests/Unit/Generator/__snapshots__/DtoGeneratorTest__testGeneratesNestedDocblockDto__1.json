@@ -1,0 +1,5 @@
+{
+    "App\/DTO\/NestedNestedDto.php": "<?php\n\nnamespace App\\DTO;\n\nuse Spatie\\DataTransferObject\\DataTransferObject;\n\nclass NestedNestedDto extends DataTransferObject\n{\n\t\/** @var string $b *\/\n\tpublic $b;\n}\n",
+    "App\/DTO\/NestedDto.php": "<?php\n\nnamespace App\\DTO;\n\nuse Spatie\\DataTransferObject\\DataTransferObject;\n\nclass NestedDto extends DataTransferObject\n{\n\t\/** @var int[] $nested_int_array *\/\n\tpublic $nested_int_array;\n\n\t\/** @var \\App\\DTO\\NestedNestedDto $nested_nested_dto *\/\n\tpublic $nested_nested_dto;\n}\n",
+    "App\/DTO\/TestDTO.php": "<?php\n\nnamespace App\\DTO;\n\nuse Spatie\\DataTransferObject\\DataTransferObject;\n\nclass TestDTO extends DataTransferObject\n{\n\t\/** @var string $string *\/\n\tpublic $string;\n\n\t\/** @var int $int *\/\n\tpublic $int;\n\n\t\/** @var float $float *\/\n\tpublic $float;\n\n\t\/** @var string[] $string_array *\/\n\tpublic $string_array;\n\n\t\/** @var int[] $int_array *\/\n\tpublic $int_array;\n\n\t\/** @var mixed $empty_array *\/\n\tpublic $empty_array;\n\n\t\/** @var \\App\\DTO\\NestedDto $nested_dto *\/\n\tpublic $nested_dto;\n}\n"
+}

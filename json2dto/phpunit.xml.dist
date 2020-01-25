@@ -16,12 +16,9 @@
             <directory suffix="Test.php">./tests/Unit</directory>
         </testsuite>
     </testsuites>
-    <listeners>
-        <listener class="NunoMaduro\Collision\Adapters\Phpunit\Listener"/>
-    </listeners>
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">./app</directory>
+            <directory suffix=".php">./src</directory>
         </whitelist>
     </filter>
 </phpunit>

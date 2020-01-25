@@ -5,16 +5,26 @@ namespace Atymic\Json2Dto\Helpers;
 
 class NamespaceFolderResolver
 {
-    public static function namespaceToFolder(string $namespace): string
+    /** @var array|null */
+    private $composerConfig;
+
+    public function __construct(?array $composerConfig = null)
     {
-        if (!file_exists('composer.json')) {
+        $this->composerConfig = $composerConfig;
+    }
+
+    public function namespaceToFolder(string $namespace): string
+    {
+        if (!NameValidator::validateNamespace($namespace)) {
+            throw new \RuntimeException('Invalid namespace provided');
+        }
+
+        if ($this->composerConfig === null) {
             return str_replace('\\', '/', $namespace);
         }
 
-        $composerConfig = json_decode(file_get_contents('composer.json'), true);
-
-        foreach ($composerConfig['autoload']['psr-4'] ?? [] as $autoloadNamespace => $autoloadFolder) {
-            if (!self::namespaceSameRoot($namespace, $autoloadNamespace)) {
+        foreach ($this->composerConfig['autoload']['psr-4'] ?? [] as $autoloadNamespace => $autoloadFolder) {
+            if (!$this->namespaceSameRoot($namespace, $autoloadNamespace)) {
                 continue;
             }
 
@@ -26,7 +36,7 @@ class NamespaceFolderResolver
         return str_replace('\\', '/', $namespace);
     }
 
-    public static function namespaceSameRoot(string $a, string $b): bool
+    public function namespaceSameRoot(string $a, string $b): bool
     {
         return !empty($a) && !empty($b) && explode('\\' ,$a)[0] ===  explode('\\' ,$b)[0];
     }

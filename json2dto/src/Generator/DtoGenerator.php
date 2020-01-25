@@ -39,12 +39,12 @@ class DtoGenerator
         $this->createClass($this->baseNamespace, $source, $name);
     }
 
-    public function getFiles(): array
+    public function getFiles(NamespaceFolderResolver $namespaceResolver): array
     {
         $files = [];
 
         foreach ($this->classes as $classNamespace) {
-            $folder = NamespaceFolderResolver::namespaceToFolder($classNamespace->getName());
+            $folder = $namespaceResolver->namespaceToFolder($classNamespace->getName());
             $className = array_values($classNamespace->getClasses())[0]->getName();
             $class = sprintf("<?php\n\n%s", (string) $classNamespace);
             $path = sprintf('%s/%s.php', $folder, $className);
