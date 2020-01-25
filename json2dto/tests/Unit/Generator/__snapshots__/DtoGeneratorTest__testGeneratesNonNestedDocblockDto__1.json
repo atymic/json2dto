@@ -1,0 +1,3 @@
+{
+    "App\/DTO\/TestDTO.php": "<?php\n\nnamespace App\\DTO;\n\nuse Spatie\\DataTransferObject\\DataTransferObject;\n\nclass TestDTO extends DataTransferObject\n{\n\t\/** @var string $string *\/\n\tpublic $string;\n\n\t\/** @var int $int *\/\n\tpublic $int;\n\n\t\/** @var float $float *\/\n\tpublic $float;\n\n\t\/** @var string[] $string_array *\/\n\tpublic $string_array;\n\n\t\/** @var int[] $int_array *\/\n\tpublic $int_array;\n\n\t\/** @var mixed $empty_array *\/\n\tpublic $empty_array;\n\n\t\/** @var mixed $nested_array *\/\n\tpublic $nested_array;\n}\n"
+}
