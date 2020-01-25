@@ -1,6 +1,7 @@
 <?php
 
 use Atymic\Json2Dto\Generator\DtoGenerator;
+use Atymic\Json2Dto\Helpers\NamespaceFolderResolver;
 use Psr\Http\Message\ResponseInterface as Response;
 use Slim\Psr7\Request;
 use Slim\Factory\AppFactory;
@@ -58,7 +59,9 @@ $app->post('/', function (Request $request, Response $response) {
             ->withHeader('Content-Length', filesize($zipPath));
     }
 
-    $file = array_values($generator->getFiles())[0] ?? '';
+    $namespaceResolver = new NamespaceFolderResolver();
+
+    $file = array_values($generator->getFiles($namespaceResolver))[0] ?? '';
     $response->getBody()->write($file);
 
     return $response

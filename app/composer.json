@@ -9,7 +9,7 @@
     ],
     "require": {
         "ext-json": "*",
-        "atymic/json2dto": "0.1.0",
+        "atymic/json2dto": "^0.1",
         "nette/php-generator": "^3.3",
         "spatie/data-transfer-object": "^1.12",
         "slim/slim": "4.*",
