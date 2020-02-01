@@ -16,11 +16,11 @@ class DtoGenerator
 {
     /** @var string */
     private $baseNamespace;
-    /** @var boolean */
+    /** @var bool */
     private $nested;
-    /** @var boolean */
+    /** @var bool */
     private $typed;
-    /** @var boolean */
+    /** @var bool */
     private $flexible;
 
     /** @var PhpNamespace[] */
@@ -114,6 +114,7 @@ class DtoGenerator
 
         if ($this->typed) {
             $property->setType($type);
+
             return;
         }
 

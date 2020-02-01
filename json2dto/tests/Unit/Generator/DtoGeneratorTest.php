@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Atymic\Json2Dto\Generator;
@@ -103,7 +104,6 @@ class DtoGeneratorTest extends TestCase
 
         $files = $generator->getFiles(new NamespaceFolderResolver());
 
-
         $this->assertCount(3, $files);
 
         $this->assertSame([
@@ -114,8 +114,6 @@ class DtoGeneratorTest extends TestCase
 
         $this->assertMatchesJsonSnapshot($files);
     }
-
-
 
     private function arrayToStdClass(array $data): ?stdClass
     {
