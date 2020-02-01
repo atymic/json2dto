@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Atymic\Json2Dto\Helpers;
@@ -38,6 +39,6 @@ class NamespaceFolderResolver
 
     public function namespaceSameRoot(string $a, string $b): bool
     {
-        return !empty($a) && !empty($b) && explode('\\' ,$a)[0] ===  explode('\\' ,$b)[0];
+        return !empty($a) && !empty($b) && explode('\\', $a)[0] === explode('\\', $b)[0];
     }
 }

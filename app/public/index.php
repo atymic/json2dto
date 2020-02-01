@@ -3,8 +3,8 @@
 use Atymic\Json2Dto\Generator\DtoGenerator;
 use Atymic\Json2Dto\Helpers\NamespaceFolderResolver;
 use Psr\Http\Message\ResponseInterface as Response;
-use Slim\Psr7\Request;
 use Slim\Factory\AppFactory;
+use Slim\Psr7\Request;
 
 require __DIR__ . '/../vendor/autoload.php';
 
