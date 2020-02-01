@@ -1,5 +1,10 @@
 # Json 2 DTO
 
+[![Build Status](https://img.shields.io/github/workflow/status/atymic/json2dto/PHP?style=flat-square)](https://github.com/atymic/json2dto/actions) 
+[![StyleCI](https://styleci.io/repos/231837839/shield)](https://styleci.io/repos/231837839) 
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/atymic/json2dto.svg?style=flat-square)](https://packagist.org/packages/atymic/json2dto) 
+[![Total Downloads](https://img.shields.io/packagist/dt/atymic/json2dto.svg?style=flat-square)](https://packagist.org/packages/atymic/json2dto) 
+
 [Spatie's Data Transfer Object](https://github.com/spatie/data-transfer-object) library is awesome, but typing out DTOs
 can quicky become a chore. Inspired by Json2Typescript style tools, we built one for PHP DTOs.
 
