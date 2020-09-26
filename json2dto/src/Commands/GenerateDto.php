@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Atymic\Json2Dto\Commands;
@@ -48,11 +49,13 @@ class GenerateDto extends Command
 
         if (!$decoded) {
             $output->writeln('Failed to parse JSON file');
+
             return self::EXIT_INVALID_JSON;
         }
 
         if (!NameValidator::validateNamespace($input->getArgument('namespace'))) {
             $output->writeln('Invalid namespace string');
+
             return self::EXIT_INVALID_NAMESPACE;
         }
 
