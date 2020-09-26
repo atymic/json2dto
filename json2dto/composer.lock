@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "447f9c985ba4528589bef955d188b054",
+    "content-hash": "a634afaee656616f4687e321f54b01d4",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -485,24 +485,28 @@
         },
         {
             "name": "spatie/data-transfer-object",
-            "version": "1.13.2",
+            "version": "2.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/data-transfer-object.git",
-                "reference": "1b267b63bfbd5a0c64653cf6c645984feb8b1d22"
+                "reference": "e326e10c8fd694db9b0c584c4986370beb9fd3ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/data-transfer-object/zipball/1b267b63bfbd5a0c64653cf6c645984feb8b1d22",
-                "reference": "1b267b63bfbd5a0c64653cf6c645984feb8b1d22",
+                "url": "https://api.github.com/repos/spatie/data-transfer-object/zipball/e326e10c8fd694db9b0c584c4986370beb9fd3ce",
+                "reference": "e326e10c8fd694db9b0c584c4986370beb9fd3ce",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.1"
+                "php": "^7.4"
             },
             "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.16",
                 "larapack/dd": "^1.0",
                 "phpunit/phpunit": "^7.0"
+            },
+            "suggest": {
+                "phpstan/phpstan": "Take advantage of checkUninitializedProperties with \\Spatie\\DataTransferObject\\PHPstan\\PropertiesAreAlwaysInitializedExtension"
             },
             "type": "library",
             "autoload": {
@@ -528,7 +532,13 @@
                 "data-transfer-object",
                 "spatie"
             ],
-            "time": "2020-01-08T11:57:58+00:00"
+            "funding": [
+                {
+                    "url": "https://www.patreon.com/spatie",
+                    "type": "patreon"
+                }
+            ],
+            "time": "2020-08-28T09:26:20+00:00"
         },
         {
             "name": "symfony/console",
@@ -1700,6 +1710,7 @@
             "keywords": [
                 "tokenizer"
             ],
+            "abandoned": true,
             "time": "2019-09-17T06:23:10+00:00"
         },
         {
@@ -2665,5 +2676,6 @@
         "php": "^7.2",
         "ext-json": "*"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }
