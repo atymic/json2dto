@@ -1,9 +1,11 @@
-FROM composer:1.9.1 as build
+FROM composer:2 as build
+
 WORKDIR /app
 COPY . /app
-RUN composer global require hirak/prestissimo && composer install
 
-FROM php:7.3-apache
+RUN composer install
+
+FROM php:7.4-apache
 
 RUN apt-get update
 RUN apt-get install -y \
