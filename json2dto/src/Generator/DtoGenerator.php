@@ -22,16 +22,19 @@ class DtoGenerator
     private $typed;
     /** @var bool */
     private $flexible;
+    /** @var bool */
+    private $usingDtoV3;
 
     /** @var PhpNamespace[] */
     private $classes = [];
 
-    public function __construct(string $baseNamespace, bool $nested, bool $typed, bool $flexible)
+    public function __construct(string $baseNamespace, bool $nested, bool $typed, bool $flexible, bool $usingDtoV3)
     {
         $this->baseNamespace = $baseNamespace;
         $this->nested = $nested;
         $this->typed = $typed;
         $this->flexible = $flexible;
+        $this->usingDtoV3 = $usingDtoV3;
     }
 
     public function generate(stdClass $source, ?string $name): void
@@ -60,13 +63,18 @@ class DtoGenerator
         stdClass $source,
         ?string $name
     ): PhpNamespace {
-        $extends = $this->flexible ? FlexibleDataTransferObject::class : DataTransferObject::class;
+        $extends = $this->flexible && !$this->usingDtoV3 ? FlexibleDataTransferObject::class : DataTransferObject::class;
 
         $classNamespace = new PhpNamespace($namespace);
         $classNamespace->addUse($extends);
 
         $class = $classNamespace->addClass(str_replace(' ', '', $name ?? 'JsonDataTransferObject'));
         $class->addExtend($extends);
+
+        if ($this->usingDtoV3 && !$this->flexible) {
+            $classNamespace->addUse('\\Spatie\\DataTransferObject\\Attributes\\Strict');
+            $class->addAttribute('Strict');
+        }
 
         foreach ($source as $key => $value) {
             $this->addProperty($classNamespace, $class, $key, $value);
