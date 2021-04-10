@@ -73,7 +73,7 @@ class DtoGenerator
 
         if ($this->usingDtoV3 && !$this->flexible) {
             $classNamespace->addUse('\\Spatie\\DataTransferObject\\Attributes\\Strict');
-            $class->addAttribute('Strict');
+            $class->addAttribute('Spatie\\DataTransferObject\\Attributes\\Strict');
         }
 
         foreach ($source as $key => $value) {
