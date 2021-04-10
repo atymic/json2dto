@@ -15,7 +15,7 @@ class DtoGeneratorTest extends TestCase
 
     public function testGeneratesNonNestedDocblockDto()
     {
-        $generator = new DtoGenerator('App\DTO', false, false, false);
+        $generator = new DtoGenerator('App\DTO', false, false, false, false);
 
         $generator->generate($this->arrayToStdClass([
             'string' => 'string',
@@ -43,7 +43,7 @@ class DtoGeneratorTest extends TestCase
 
     public function testGeneratesNestedDocblockDto()
     {
-        $generator = new DtoGenerator('App\DTO', true, false, false);
+        $generator = new DtoGenerator('App\DTO', true, false, false, false);
 
         $generator->generate($this->arrayToStdClass([
             'string' => 'string',
@@ -82,7 +82,7 @@ class DtoGeneratorTest extends TestCase
 
     public function testGeneratesNestedTypedDto()
     {
-        $generator = new DtoGenerator('App\DTO', true, true, false);
+        $generator = new DtoGenerator('App\DTO', true, true, false, false);
 
         $generator->generate($this->arrayToStdClass([
             'string' => 'string',
@@ -112,6 +112,34 @@ class DtoGeneratorTest extends TestCase
             'App/DTO/TestDTO.php',
         ], array_keys($files));
 
+        $this->assertMatchesJsonSnapshot($files);
+    }
+
+    public function testGeneratesV3Dto()
+    {
+        $generator = new DtoGenerator('App\DTO', false, true, false, true);
+
+        $generator->generate($this->arrayToStdClass([
+            'string' => 'string',
+            'int' => 1,
+            'float' => 1.1,
+            'string_array' => [
+                'a',
+                'b',
+            ],
+            'int_array' => [
+                1,
+                2,
+            ],
+            'empty_array' => [],
+            'nested_array' => [
+                'a' => ['b' => 'c'],
+            ],
+        ]), 'TestDTO');
+
+        $files = $generator->getFiles(new NamespaceFolderResolver());
+
+        $this->assertCount(1, $files);
         $this->assertMatchesJsonSnapshot($files);
     }
 
