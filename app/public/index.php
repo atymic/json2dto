@@ -30,8 +30,9 @@ $app->post('/', function (Request $request, Response $response) {
     $generator = new DtoGenerator(
         $args->namespace ?? 'App\DTO',
         $nested,
-        $args->typed ?? false,
-        $args->flexible ?? false
+        ($args->typed ?? false) || ($args->v3 ?? false),
+        $args->flexible ?? false,
+        $args->v3 ?? false
     );
 
     $generator->generate($args->source ?? new stdClass(), $name);

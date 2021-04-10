@@ -59,10 +59,11 @@
     data () {
       return {
         json: JSON.stringify({ 'id': 45, 'name': 'hello world', 'price': 44.5, 'enabled': true }, null, 2),
+        version: null,
         options: {
           namespace: 'App\\DTO',
           name: null,
-          typed: false,
+          version: 'v2_typed',
           flexible: false,
           nested: false,
         },
@@ -82,10 +83,13 @@
 
         this.$refs.input.tidy()
         this.loading = true
+
+
         Axios.post(process.env.VUE_APP_ENDPOINT || 'http://localhost:8081', {
           namespace: this.options.namespace || null,
           name: this.options.name || null,
-          typed: this.options.typed,
+          typed: this.options.version === 'v3' || this.options.version === 'v2_typed',
+          v3: this.options.version === 'v3',
           nested: this.options.nested,
           flexible: this.options.flexible,
           source: JSON.parse(this.json),
@@ -105,7 +109,7 @@
       },
       getSaveStateConfig () {
         return {
-          'cacheKey': 'json2dto',
+          'cacheKey': 'json2dto_v2',
           'ignoreProperties': ['loading', 'error'],
         }
       },

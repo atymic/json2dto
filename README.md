@@ -6,7 +6,7 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/atymic/json2dto.svg?style=flat-square)](https://packagist.org/packages/atymic/json2dto) 
 
 [Spatie's Data Transfer Object](https://github.com/spatie/data-transfer-object) library is awesome, but typing out DTOs
-can quicky become a chore. Inspired by Json2Typescript style tools, we built one for PHP DTOs.
+can quickly become a chore. Inspired by Json2Typescript style tools, we built one for PHP DTOs.
 
 ## Web Version
 
@@ -36,10 +36,13 @@ based on your PSR4 autoloading config. If you aren't using PSR4, your generated 
 
 ```bash
 # Generate PHP 7.4 typed DTO
-./vendor/bin/json2dto generate "App\DTO" test.json "Namespace\Subnamespace" -name "Test" --typed
+./vendor/bin/json2dto generate "App\DTO" test.json -name "Test" --typed
+
+# Generate PHP 8.0 typed DTO (DTO V3)
+./vendor/bin/json2dto generate "App\DTO" test.json -name "Test" --v3
 
 # Generate a flexible DTO (with nested DTOs)
-./vendor/bin/json2dto generate "App\DTO" test.json "Atymic\Test" -name "Test" --nested --flexible
+./vendor/bin/json2dto generate "App\DTO" test.json -name "Test" --nested --flexible
 
 # Generate a DTO from stdin
 wget http://example.com/cat.json | ./vendor/bin/json2dto generate "App\DTO" -name Cat
@@ -54,9 +57,10 @@ Arguments:
   json                            File containing the json string
 
 Options:
-      -name, --classname[=CLASSNAME]  Class name of the new DTO [default: "NewDto"]
-      --nested                        Generate nested DTOs
-      --typed                         Generate PHP >= 7.4 strict typing
-      --flexible                      Generate a flexible DTO
-      --dry                           Dry run, print generated files
+      --nested                    Generate nested DTOs
+      --typed                     Generate PHP >= 7.4 strict typing
+      --flexible                  Generate a flexible DTO
+      --dry                       Dry run, print generated files
+      --v3                        Generate V3 DTO
+  -h, --help                      Display this help message
 ```
