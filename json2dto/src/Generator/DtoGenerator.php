@@ -15,18 +15,18 @@ use stdClass;
 class DtoGenerator
 {
     /** @var string */
-    private string $baseNamespace;
+    private $baseNamespace;
     /** @var bool */
-    private bool $nested;
+    private $nested;
     /** @var bool */
-    private bool $typed;
+    private $typed;
     /** @var bool */
-    private bool $flexible;
+    private $flexible;
     /** @var bool */
-    private bool $usingDtoV3;
+    private $usingDtoV3;
 
     /** @var PhpNamespace[] */
-    private array $classes = [];
+    private $classes = [];
 
     public function __construct(string $baseNamespace, bool $nested, bool $typed, bool $flexible, bool $usingDtoV3)
     {
