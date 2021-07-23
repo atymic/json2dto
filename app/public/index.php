@@ -43,7 +43,7 @@ $app->post('/', function (Request $request, Response $response) {
         $zip = new \ZipArchive();
         $zip->open($zipPath, \ZipArchive::CREATE);
 
-        foreach ($generator->getFiles() as $path => $class) {
+        foreach ($generator->getFiles(new NamespaceFolderResolver(null)) as $path => $class) {
             $zip->addFromString($path, $class);
         }
 
