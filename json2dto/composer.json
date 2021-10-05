@@ -18,10 +18,10 @@
     "require": {
         "php": "^7.2 || ^8.0",
         "ext-json": "*",
-        "illuminate/support": "~5.5 || ~6.0",
+        "illuminate/support": "~5.5 || ~6.0 || ~7.0 || ~8.0",
         "nette/php-generator": "^3.3",
         "spatie/data-transfer-object": "^1.13  || ^2.0",
-        "symfony/console": "^4.2"
+        "symfony/console": "^4.2 || ^5.0"
 
     },
     "require-dev": {
