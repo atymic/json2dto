@@ -9,16 +9,16 @@ jobs:
       max-parallel: 15
       fail-fast: false
       matrix:
-        php-versions: ['7.2', '7.3', '7.4']
+        php-versions: ['7.4', '8.1']
     name: Tests - PHP ${{ matrix.php-versions }}
     steps:
     - name: Checkout
       uses: actions/checkout@master
     - name: Setup PHP
-      uses: shivammathur/setup-php@v1
+      uses: shivammathur/setup-php@v2
       with:
         php-version: ${{ matrix.php-versions }}
-        extension: xdebug
+        extensions: xdebug
         coverage: xdebug
     - name: Install dependencies
       working-directory: ./json2dto
