@@ -14,7 +14,7 @@
         "nette/php-generator": "^3.3",
         "spatie/data-transfer-object": "^1.12 || ^2.0",
         "slim/slim": "4.*",
-        "slim/psr7": "^0.6.0"
+        "slim/psr7": "^1.6.1"
     },
     "config": {
         "platform": {
